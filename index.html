@@ -10,5 +10,17 @@
     <script data-main="scripts/main" src="bower_components/requirejs/require.js"></script>
   </head>
   <body>
-</body>
+    <fieldset>
+      <label>
+        <input type="checkbox" name="use-css" value="use-css" id="use-css">
+        <span>Use CSS <code>@keyframes</code></span>
+      </label>
+      <ul>
+        <li><button id="tween">Animate <code>transformX/Y</code></button></li>
+        <li><button id="tween-with-background">Animate <code>transformX/Y</code> and <code>background</code></button></li>
+        <li><button id="stop">Stop animation</button></li>
+      </ul>
+    </fieldset>
+    <div class="test-actor"></div>
+  </body>
 </html>

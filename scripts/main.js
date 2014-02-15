@@ -9,5 +9,67 @@ require.config({
 
 require(['rekapi'], function (Rekapi) {
   'use strict';
-  console.log(Rekapi);
+  var testActorDiv = document.querySelector('.test-actor');
+  var tweenBtn = document.querySelector('#tween');
+  var stopBtn = document.querySelector('#stop');
+  var tweenWithBackgroundBtn = document.querySelector('#tween-with-background');
+  var useCSSCheckbox = document.querySelector('#use-css');
+
+  var rekapi = new Rekapi(document.body);
+  var testActor = rekapi.addActor({context: testActorDiv});
+
+  function killAnimation () {
+    rekapi.stop();
+    rekapi.update(0);
+    testActor.removeAllKeyframes();
+    testActorDiv.setAttribute('style', '');
+  }
+
+  function playAnimation () {
+    if (useCSSCheckbox.checked) {
+      rekapi.renderer.play();
+    } else {
+      rekapi.play();
+    }
+  }
+
+  function stopAnimation () {
+    if (useCSSCheckbox.checked) {
+      rekapi.renderer.stop();
+    } else {
+      rekapi.stop();
+    }
+  }
+
+  tweenBtn.addEventListener('click', function () {
+    killAnimation();
+
+    testActor
+      .keyframe(0, {
+        transform: 'translateX(0px) translateY(0px)'
+      })
+      .keyframe(1500, {
+        transform: 'translateX(300px) translateY(300px)'
+      });
+
+    playAnimation();
+  });
+
+  tweenWithBackgroundBtn.addEventListener('click', function () {
+    killAnimation();
+
+    testActor
+      .keyframe(0, {
+        transform: 'translateX(0px) translateY(0px)'
+        ,background: '#f00'
+      })
+      .keyframe(1500, {
+        transform: 'translateX(300px) translateY(300px)'
+        ,background: '#00f'
+      });
+
+    playAnimation();
+  });
+
+  stopBtn.addEventListener('click', stopAnimation);
 });
