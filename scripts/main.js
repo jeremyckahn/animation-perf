@@ -19,7 +19,7 @@ require(['rekapi'], function (Rekapi) {
   var testActor = rekapi.addActor({context: testActorDiv});
 
   function killAnimation () {
-    rekapi.stop();
+    stopAnimation();
     rekapi.update(0);
     testActor.removeAllKeyframes();
     testActorDiv.setAttribute('style', '');
@@ -34,11 +34,8 @@ require(['rekapi'], function (Rekapi) {
   }
 
   function stopAnimation () {
-    if (useCSSCheckbox.checked) {
-      rekapi.renderer.stop();
-    } else {
-      rekapi.stop();
-    }
+    rekapi.renderer.stop();
+    rekapi.stop();
   }
 
   tweenBtn.addEventListener('click', function () {
