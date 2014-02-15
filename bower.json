@@ -1,0 +1,20 @@
+{
+  "name": "animation-perf",
+  "version": "0.0.0",
+  "authors": [
+    "Jeremy Kahn <jeremyckahn@gmail.com>"
+  ],
+  "description": "A set of web animation performance experiments",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "rekapi": "~1.0.4",
+    "requirejs": "~2.1.10"
+  }
+}
