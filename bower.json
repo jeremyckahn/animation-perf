@@ -14,7 +14,7 @@
     "tests"
   ],
   "dependencies": {
-    "rekapi": "~1.0.4",
+    "rekapi": "~1.0.5",
     "requirejs": "~2.1.10"
   }
 }
